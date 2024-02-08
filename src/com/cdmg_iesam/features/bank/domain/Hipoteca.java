@@ -20,6 +20,18 @@ public class Hipoteca {
         this.ammount = ammount;
     }
 
+    @Override
+    public String toString() {
+        return "Hipoteca" + '\n' +
+                "id='" + id + '\n' +
+                " name='" + name + '\n' +
+                " descripttion='" + descripttion + '\n' +
+                " initDate='" + initDate + '\n' +
+                " endDate='" + endDate + '\n' +
+                " interests='" + interests + '\n' +
+                " ammount='" + ammount + '\n';
+    }
+
     public String getId() {
         return id;
     }

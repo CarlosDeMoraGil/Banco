@@ -14,11 +14,10 @@ public class Transactions {
 
     @Override
     public String toString() {
-        return "Transactions{" +
-                "id='" + id + '\'' +
-                ", description='" + description + '\'' +
-                ", ammount=" + ammount +
-                '}';
+        return "Transactions" + '\n' +
+                "id='" + id + '\n' +
+                " description='" + description + '\n' +
+                " ammount=" + ammount;
     }
 
     public String getId() {

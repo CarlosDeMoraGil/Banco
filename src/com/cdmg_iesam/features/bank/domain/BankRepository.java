@@ -6,4 +6,10 @@ public interface BankRepository {
 
     void payment(int ammount, String id);
 
+    void createHipoteca(Hipoteca hipoteca);
+
+    void saveClient(Clients clients);
+    void createAccount(Account account);
+    Account printClient(String id);
+
 }

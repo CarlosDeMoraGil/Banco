@@ -2,7 +2,8 @@ package com.cdmg_iesam.features.bank.data;
 
 import com.cdmg_iesam.features.bank.domain.Account;
 import com.cdmg_iesam.features.bank.domain.BankRepository;
-import com.cdmg_iesam.features.bank.domain.Transactions;
+import com.cdmg_iesam.features.bank.domain.Clients;
+import com.cdmg_iesam.features.bank.domain.Hipoteca;
 
 import java.util.ArrayList;
 
@@ -10,14 +11,8 @@ public class BankDataRepository implements BankRepository {
 
     private static BankDataRepository instance = null;
     private ArrayList<Account> Cuentas = new ArrayList<>();
-    public void initData(){
-        Cuentas.add(new Account("1","Carlos",500));
-        Cuentas.add(new Account("2","Carlos",500));
-    }
-
-    public BankDataRepository() {
-        initData();
-    }
+    private ArrayList<Hipoteca> Hipotecas = new ArrayList<>();
+    private ArrayList<Clients> Clientes = new ArrayList<>();
 
     @Override
     public void charge(int ammount, String id) {
@@ -32,8 +27,6 @@ public class BankDataRepository implements BankRepository {
                     resultado = Cuentas.get(i).getBalance() + ammount;
                 }
             }
-
-            System.out.println(resultado);
 
         }
 
@@ -53,9 +46,34 @@ public class BankDataRepository implements BankRepository {
                 }
             }
 
-            System.out.println(resultado);
 
         }
+    }
+
+    @Override
+    public void createHipoteca(Hipoteca hipoteca) {
+        Hipotecas.add(hipoteca);
+    }
+
+    @Override
+    public void saveClient(Clients clients) {
+        Clientes.add(clients);
+    }
+
+    @Override
+    public void createAccount(Account account) {
+        Cuentas.add(account);
+    }
+
+    @Override
+    public Account printClient(String id) {
+        for(Account account : Cuentas){
+            if(account.getId().equals(id)){
+                return account;
+            }
+        }
+
+        return null;
     }
 
     public static BankDataRepository newInstance(){
